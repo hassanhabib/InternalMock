@@ -5,6 +5,7 @@
 // ---------------------------------------------------------------
 
 using System;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.Serialization;
@@ -44,9 +45,27 @@ namespace InternalMock.Tests.Unit.Services.Foundations.Reflections
             };
         }
 
+        private static int GetRandomNumber() =>
+            new IntRange(2, 10).GetValue();
+
+        private static Type[] GetRandomTypes()
+        {
+            int randomNumber = GetRandomNumber();
+
+            return Enumerable.Range(start: 0, count: randomNumber)
+                .Select(item => GetRandomType()).ToArray();
+        }
+
         private static MethodInfo CreateRandomMethodInfo()
         {
-            return new DynamicMethod("", null, null);
+            string randomMethodName = GetRandomMethodName();
+            Type randomType = GetRandomType();
+            Type[] randomTypes = GetRandomTypes();
+
+            return new DynamicMethod(
+                name: randomMethodName,
+                returnType: randomType,
+                parameterTypes: randomTypes);
         }
     }
 }
