@@ -1,11 +1,13 @@
+
+using Xunit;
+
 namespace InternalMock.Tests.Unit
 {
-    public class UnitTest1
+    public class DeleteMe
     {
         [Fact]
-        public void Test1()
+        public void ShouldBeTrue()
         {
-
         }
     }
 }
