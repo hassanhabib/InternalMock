@@ -11,5 +11,6 @@ namespace InternalMock.Brokers.Patchings
     public interface IPatchBroker
     {
         MethodInfo PatchMethods(MethodInfo original, MethodInfo additional);
+        void UnpatchAll();
     }
 }
