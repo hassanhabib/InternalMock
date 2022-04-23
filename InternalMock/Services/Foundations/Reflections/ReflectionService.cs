@@ -17,9 +17,7 @@ namespace InternalMock.Services.Foundations.Reflections
         public ReflectionService(IReflectionBroker reflectionBroker) =>
             this.reflectionBroker = reflectionBroker;
 
-        public MethodInfo RetrieveMethodInformation(Type type, string methodName)
-        {
-            throw new NotImplementedException();
-        }
+        public MethodInfo RetrieveMethodInformation(Type type, string methodName) =>
+            this.reflectionBroker.GetMethodInfo(type, methodName);
     }
 }

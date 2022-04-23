@@ -43,6 +43,8 @@ namespace InternalMock.Tests.Unit.Services.Foundations.Reflections
             this.reflectionBrokerMock.Verify(broker =>
                 broker.GetMethodInfo(inputType, inputMethodName),
                     Times.Once);
+
+            this.reflectionBrokerMock.VerifyNoOtherCalls();
         }
     }
 }
