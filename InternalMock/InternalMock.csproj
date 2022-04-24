@@ -17,18 +17,21 @@
     <FileVersion>0.1</FileVersion>
     <Version>0.1</Version>
     <Authors>Hassan Habib</Authors>
-    <Company>Hassan Habib</Company>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="C:\Users\hassan\Downloads\InternalMock.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
+    <Content Include="InternalMock.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Lib.Harmony" Version="2.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="InternalMock.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
