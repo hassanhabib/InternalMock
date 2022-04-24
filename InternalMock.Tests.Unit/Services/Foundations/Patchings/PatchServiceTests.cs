@@ -8,29 +8,28 @@ using System;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
-using System.Runtime.Serialization;
-using InternalMock.Brokers.Reflections;
-using InternalMock.Services.Foundations.Reflections;
+using InternalMock.Brokers.Patchings;
+using InternalMock.Services.Foundations.Patchings;
 using Moq;
 using Tynamix.ObjectFiller;
 
-namespace InternalMock.Tests.Unit.Services.Foundations.Reflections
+namespace InternalMock.Tests.Unit.Services.Foundations.Patchings
 {
-    public partial class ReflectionServiceTests
+    public partial class PatchServiceTests
     {
-        private readonly Mock<IReflectionBroker> reflectionBrokerMock;
-        private readonly IReflectionService reflectionService;
+        private readonly Mock<IPatchBroker> patchBrokerMock;
+        private readonly IPatchService patchService;
 
-        public ReflectionServiceTests()
+        public PatchServiceTests()
         {
-            this.reflectionBrokerMock = new Mock<IReflectionBroker>();
+            this.patchBrokerMock = new Mock<IPatchBroker>();
 
-            this.reflectionService = new ReflectionService(
-                reflectionBroker: this.reflectionBrokerMock.Object);
+            this.patchService = new PatchService(
+                patchBroker: this.patchBrokerMock.Object);
         }
 
         private static string GetRandomMethodName() =>
-            new MnemonicString().GetValue();
+          new MnemonicString().GetValue();
 
         private static Type GetRandomType()
         {

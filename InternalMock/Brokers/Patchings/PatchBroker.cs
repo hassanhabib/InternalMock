@@ -16,8 +16,8 @@ namespace InternalMock.Brokers.Patchings
         public PatchBroker() =>
             this.harmony = new Harmony("InternalMock");
 
-        public MethodInfo PatchMethods(MethodInfo original, MethodInfo additional) =>
-            this.harmony.Patch(original, new HarmonyMethod(additional));
+        public MethodInfo PatchMethods(MethodInfo originalMethodInfo, MethodInfo additionalMethodInfo) =>
+            this.harmony.Patch(originalMethodInfo, new HarmonyMethod(additionalMethodInfo));
 
         public void UnpatchAll() => this.harmony.UnpatchAll();
     }

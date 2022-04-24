@@ -6,11 +6,10 @@
 
 using System.Reflection;
 
-namespace InternalMock.Brokers.Patchings
+namespace InternalMock.Services.Foundations.Patchings
 {
-    public interface IPatchBroker
+    public interface IPatchService
     {
-        MethodInfo PatchMethods(MethodInfo originalMethodInfo, MethodInfo additionalMethodInfo);
-        void UnpatchAll();
+        void PatchMethods(MethodInfo originalMethodInfo, MethodInfo additionalMethoInfo);
     }
 }
