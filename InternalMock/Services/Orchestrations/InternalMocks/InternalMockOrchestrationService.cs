@@ -25,7 +25,10 @@ namespace InternalMock.Services.Orchestrations.InternalMocks
             this.patchService = patchService;
         }
 
-        public void Mock(string internalMethodName, Type type, Exception internalException)
+        public void Mock(
+            string internalMethodName,
+            Type type,
+            Exception internalException)
         {
             exception = internalException;
 
