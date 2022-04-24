@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32317.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternalMock", "InternalMock\InternalMock.csproj", "{AF50EB4E-A5FF-4A54-B4C0-8C707D173B5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternalMock", "InternalMock\InternalMock.csproj", "{AF50EB4E-A5FF-4A54-B4C0-8C707D173B5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternalMock.Tests.Unit", "InternalMock.Tests.Unit\InternalMock.Tests.Unit.csproj", "{1D83FFB6-C57B-4D8D-903E-A19D4796146D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternalMock.Tests.Unit", "InternalMock.Tests.Unit\InternalMock.Tests.Unit.csproj", "{1D83FFB6-C57B-4D8D-903E-A19D4796146D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternalMock.Infrastructure.Build", "InternalMock.Infrastructure.Build\InternalMock.Infrastructure.Build.csproj", "{C45BCB17-C4C2-4345-AD7E-A578C09C2AEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{1D83FFB6-C57B-4D8D-903E-A19D4796146D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D83FFB6-C57B-4D8D-903E-A19D4796146D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D83FFB6-C57B-4D8D-903E-A19D4796146D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C45BCB17-C4C2-4345-AD7E-A578C09C2AEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C45BCB17-C4C2-4345-AD7E-A578C09C2AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C45BCB17-C4C2-4345-AD7E-A578C09C2AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C45BCB17-C4C2-4345-AD7E-A578C09C2AEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
