@@ -20,7 +20,9 @@ namespace InternalMock.Services.Foundations.Patchings
             MethodInfo originalMethodInfo,
             MethodInfo additionalMethoInfo)
         {
-            throw new System.NotImplementedException();
+            this.patchBroker.PatchMethods(
+                originalMethodInfo,
+                additionalMethoInfo);
         }
     }
 }
