@@ -5,6 +5,7 @@
 
 # InternalMock
 
+## Introduction
 This is a beta release please use carefully.
 
 This library allows you to mock internal private static methods in your service - please watch the following videos for context:
@@ -14,8 +15,12 @@ This library allows you to mock internal private static methods in your service 
 - [Postfixing Anonymous Functions](https://www.youtube.com/watch?v=nGU8OD7CRdY)
 
 
-Example of usage:
+## Architecture
+Here's the architecture of the library according to [The Standard](https://github.com/hassanhabib/The-Standard):
 
+![image](https://user-images.githubusercontent.com/1453985/164965639-ae86363c-e29b-48ef-b1b0-b39a95a860b0.png)
+
+## Examples
 Let's Assume you have a service that has several functions that don't call any dependencies. Your service is what we call self-sufficient or dead-end service, as the flow stops there and might just be returned from the same service. An example of a service like this is a tax calculation service, you pass the total income, along with some other details and it calculates the taxes for a certain year. It doesn't call any dependencies. 
 
 Now, in that very unique scenario we need to find a way to test-drive that our self-sufficient service here can handle a generic `exception` or any other exception of any type. Since there are no dependencies injected, it's impossible to tag an exception the regular way where we do:
@@ -81,6 +86,7 @@ And now we can make that very same test pass by doing the following:
   }
 ```
 
+## Contact us
 
 For more information contact Hassan Habib: hassanhabib@live.com
 Also join our Standard Community on Discord Community here:
