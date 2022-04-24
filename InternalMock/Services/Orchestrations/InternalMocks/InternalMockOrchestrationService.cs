@@ -47,8 +47,7 @@ namespace InternalMock.Services.Orchestrations.InternalMocks
                 additionalMethodInfo);
         }
 
-        public void UnpatchMethods() =>
-            throw new NotImplementedException();
+        public void UnpatchMethods() => this.patchService.UnpatchMethods();
 
         private static void ThrowException() => throw exception;
     } 
