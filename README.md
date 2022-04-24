@@ -57,9 +57,7 @@ We can write the test as follows to make the `ValidateStudentName` function thro
           lastName: "Habib");
 
       // then
-      StudentServiceException studentServiceException =
-          Assert.Throws<StudentServiceException>(
-              retrieveStudentFullNameAction);
+      Assert.Throws<StudentServiceException>(retrieveStudentFullNameAction);
 
       this.expressionService.ClearAllOtherCalls();
   }
