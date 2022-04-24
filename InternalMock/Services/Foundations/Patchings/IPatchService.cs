@@ -10,6 +10,10 @@ namespace InternalMock.Services.Foundations.Patchings
 {
     public interface IPatchService
     {
-        void PatchMethods(MethodInfo originalMethodInfo, MethodInfo additionalMethoInfo);
+        void PatchMethods(
+            MethodInfo originalMethodInfo,
+            MethodInfo additionalMethoInfo);
+
+        void UnpatchMethods();
     }
 }

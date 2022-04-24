@@ -46,5 +46,19 @@ namespace InternalMock.Tests.Unit.Services.Foundations.Patchings
 
             this.patchBrokerMock.VerifyNoOtherCalls();
         }
+
+        [Fact]
+        public void ShouldUnpatchMethods()
+        {
+            // given . when
+            this.patchService.UnpatchMethods();
+
+            // then
+            this.patchBrokerMock.Verify(broker =>
+                broker.UnpatchAll(),
+                    Times.Once);
+
+            this.patchBrokerMock.VerifyNoOtherCalls();
+        }
     }
 }
