@@ -26,6 +26,6 @@ namespace InternalMock.Services.Foundations.Patchings
         }
 
         public void UnpatchMethods() =>
-            throw new System.NotImplementedException();
+            this.patchBroker.UnpatchAll();
     }
 }
