@@ -53,8 +53,9 @@ We can write the test as follows to make the `ValidateStudentName` function thro
       // given
       var exception = new Exception();
 
-      this.studentService.Mock("ValidateStudentName")
-        .Throws(exception);
+      this.studentService.Mock(
+        methodName: "ValidateStudentName")
+          .Throws(exception);
 
       // when
       Action retrieveStudentFullNameAction = () =>
