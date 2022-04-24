@@ -54,7 +54,7 @@ We can write the test as follows to make the `ValidateStudentName` function thro
       var exception = new Exception();
 
       this.studentService.Mock(
-        internalMethodName: "ValidateStudentName",
+        methodName: "ValidateStudentName",
         exception: exception);
 
       // when
