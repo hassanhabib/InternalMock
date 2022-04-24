@@ -4,6 +4,8 @@
 
 
 # InternalMock
+[![.Net](https://github.com/hassanhabib/InternalMock/actions/workflows/dotnet.yml/badge.svg)](https://github.com/hassanhabib/InternalMock/actions/workflows/dotnet.yml)
+[![The Standard - COMPLIANT](https://img.shields.io/badge/The_Standard-COMPLIANT-2ea44f)](https://github.com/hassanhabib/The-Standard)
 
 ## Introduction
 This is a beta release please use carefully.
