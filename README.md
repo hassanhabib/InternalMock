@@ -26,7 +26,7 @@ Here's the architecture of the library according to [The Standard](https://githu
 Let's Assume you have a service that has several functions that don't call any dependencies. Your service is what we call self-sufficient or dead-end service, as the flow stops there and might just be returned from the same service. An example of a service like this is a tax calculation service, you pass the total income, along with some other details and it calculates the taxes for a certain year. It doesn't call any dependencies. 
 
 Now, in that very unique scenario we need to find a way to test-drive that our self-sufficient service here can handle a generic `exception` or any other exception of any type. Since there are no dependencies injected, it's impossible to tag an exception the regular way where we do:
-```cshap
+```csharp
   this.someDependency.Setup(dependency =>
     dependency.GetStuff())
       .Throws(exception);
@@ -53,9 +53,8 @@ We can write the test as follows to make the `ValidateStudentName` function thro
       // given
       var exception = new Exception();
 
-      this.studentService.Mock(
-        methodName: "ValidateStudentName",
-        exception: exception);
+      this.studentService.Mock("ValidateStudentName")
+        .Throws(exception);
 
       // when
       Action retrieveStudentFullNameAction = () =>
