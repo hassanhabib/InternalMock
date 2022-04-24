@@ -24,5 +24,8 @@ namespace InternalMock.Services.Foundations.Patchings
                 originalMethodInfo,
                 additionalMethoInfo);
         }
+
+        public void UnpatchMethods() =>
+            this.patchBroker.UnpatchAll();
     }
 }
