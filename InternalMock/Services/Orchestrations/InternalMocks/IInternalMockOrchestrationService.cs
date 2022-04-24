@@ -14,5 +14,7 @@ namespace InternalMock.Services.Orchestrations.InternalMocks
             string internalMethodName,
             Type type,
             Exception exception);
+
+        void UnpatchMethods();
     }
 }

@@ -70,5 +70,20 @@ namespace InternalMock.Tests.Unit.Services.Orchestrations.InternalMocks
             this.reflectionServiceMock.VerifyNoOtherCalls();
             this.patchServiceMock.VerifyNoOtherCalls();
         }
+
+        [Fact]
+        public void ShouldUnpatchMethods()
+        {
+            // given . when
+            this.internalMockOrchestrationService.UnpatchMethods();
+
+            // then
+            this.patchServiceMock.Verify(service =>
+                service.UnpatchMethods(),
+                    Times.Once);
+
+            this.patchServiceMock.VerifyNoOtherCalls();
+            this.reflectionServiceMock.VerifyNoOtherCalls();
+        }
     }
 }
