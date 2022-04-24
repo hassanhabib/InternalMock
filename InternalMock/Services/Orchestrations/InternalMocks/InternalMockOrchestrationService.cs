@@ -15,6 +15,7 @@ namespace InternalMock.Services.Orchestrations.InternalMocks
     {
         private readonly IReflectionService reflectionService;
         private readonly IPatchService patchService;
+        private static Exception exception;
 
         public InternalMockOrchestrationService(
             IReflectionService reflectionService,
@@ -24,8 +25,10 @@ namespace InternalMock.Services.Orchestrations.InternalMocks
             this.patchService = patchService;
         }
 
-        public void Mock(string internalMethodName, Type type, Exception exception)
+        public void Mock(string internalMethodName, Type type, Exception internalException)
         {
+            exception = internalException;
+
             MethodInfo internalMethodInfo =
                 this.reflectionService.RetrieveMethodInformation(
                     type,
@@ -41,6 +44,6 @@ namespace InternalMock.Services.Orchestrations.InternalMocks
                 additionalMethodInfo);
         }
 
-        private static void ThrowException(Exception exception) => throw exception;
+        private static void ThrowException() => throw exception;
     } 
 }
