@@ -83,3 +83,6 @@ And now we can make that very same test pass by doing the following:
 
 
 For more information contact Hassan Habib: hassanhabib@live.com
+Also join our Standard Community on Discord Community here:
+
+[![Discord](https://discord.com/api/guilds/934130100008538142/widget.png?style=banner2)](https://discord.gg/vdPZ7hS52X)
