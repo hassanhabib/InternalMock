@@ -10,7 +10,7 @@ using InternalMock.Brokers.Reflections;
 
 namespace InternalMock.Services.Foundations.Reflections
 {
-    public class ReflectionService : IReflectionService
+    public partial class ReflectionService : IReflectionService
     {
         private readonly IReflectionBroker reflectionBroker;
 
@@ -18,6 +18,10 @@ namespace InternalMock.Services.Foundations.Reflections
             this.reflectionBroker = reflectionBroker;
 
         public MethodInfo RetrieveMethodInformation(Type type, string methodName) =>
-            this.reflectionBroker.GetMethodInfo(type, methodName);
+        TryCatch(() =>
+        {
+            ValidateMethodName(methodName);
+            return this.reflectionBroker.GetMethodInfo(type, methodName);
+        });
     }
 }
