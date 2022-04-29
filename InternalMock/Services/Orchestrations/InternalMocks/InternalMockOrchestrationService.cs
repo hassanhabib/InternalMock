@@ -1,5 +1,5 @@
 ﻿// ---------------------------------------------------------------
-// Copyright (c) Hassan Habib
+// Copyright (c) Hassan Habib, Ricardo Cruz, Mabrouk Mahdhi
 // Licensed under the MIT License.
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
@@ -50,5 +50,5 @@ namespace InternalMock.Services.Orchestrations.InternalMocks
         public void UnpatchMethods() => this.patchService.UnpatchMethods();
 
         private static void ThrowException() => throw exception;
-    } 
+    }
 }

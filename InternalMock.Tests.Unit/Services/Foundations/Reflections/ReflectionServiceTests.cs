@@ -1,5 +1,5 @@
 ﻿// ---------------------------------------------------------------
-// Copyright (c) Hassan Habib
+// Copyright (c) Hassan Habib, Ricardo Cruz, Mabrouk Mahdhi
 // Licensed under the MIT License.
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
@@ -8,7 +8,6 @@ using System;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
-using System.Runtime.Serialization;
 using InternalMock.Brokers.Reflections;
 using InternalMock.Services.Foundations.Reflections;
 using Moq;
