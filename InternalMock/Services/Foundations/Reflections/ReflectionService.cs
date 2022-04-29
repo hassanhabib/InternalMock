@@ -20,7 +20,8 @@ namespace InternalMock.Services.Foundations.Reflections
         public MethodInfo RetrieveMethodInformation(Type type, string methodName) =>
         TryCatch(() =>
         {
-            ValidateMethodName(methodName);
+            ValidateMethodInformation(type, methodName);
+
             return this.reflectionBroker.GetMethodInfo(type, methodName);
         });
     }

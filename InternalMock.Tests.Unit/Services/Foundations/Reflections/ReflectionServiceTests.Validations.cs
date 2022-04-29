@@ -14,18 +14,26 @@ namespace InternalMock.Tests.Unit.Services.Foundations.Reflections
     public partial class ReflectionServiceTests
     {
         [Fact]
-        public void ShouldThrowValidationExceptionRetrieveMethodInfoIfMethodNameIsNull()
+        public void ShouldThrowValidationExceptionOnRetrieveMethodInfoIfReflectionIsInvalid()
         {
             // given
             string nullMethodName = null;
             Type someType = GetRandomType();
             Type inputType = someType;
 
-            var invalidMethodNameException =
-                new InvalidMethodNameException();
+            var invalidReflectionException =
+                new InvalidRefelctionException();
+
+            invalidReflectionException.AddData(
+                key: "type",
+                values: "Type is required");
+
+            invalidReflectionException.AddData(
+                key: "methodName",
+                values: "Text is required");
 
             var reflectionValidationException =
-                new ReflectionValidationException(invalidMethodNameException);
+                new ReflectionValidationException(invalidReflectionException);
 
             // when
             Action retrieveMethodInformationAction = () =>

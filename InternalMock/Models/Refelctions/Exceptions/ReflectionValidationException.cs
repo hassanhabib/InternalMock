@@ -4,14 +4,15 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using System;
+using Xeptions;
 
 namespace InternalMock.Models.Refelctions.Exceptions
 {
-    public class ReflectionValidationException : Exception
+    public class ReflectionValidationException : Xeption
     {
-        public ReflectionValidationException(Exception innerException) :
-            base(message: "Reflection validation error ocurred please fix issue anr try again", innerException)
-        {}
+        public ReflectionValidationException(Xeption innerException) :
+            base(message: "Reflection validation error ocurred please fix errors and try again",
+                innerException)
+        { }
     }
 }

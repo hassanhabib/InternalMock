@@ -4,14 +4,14 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using System;
+using Xeptions;
 
 namespace InternalMock.Models.Refelctions.Exceptions
 {
-    public class InvalidMethodNameException : Exception
+    public class InvalidRefelctionException : Xeption
     {
-        public InvalidMethodNameException() :
-            base(message: "Method name cannot be null")
+        public InvalidRefelctionException()
+            : base(message: "Invalid reflection. Please correct the errors and try again.")
         { }
     }
 }

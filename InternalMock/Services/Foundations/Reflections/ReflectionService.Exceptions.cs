@@ -19,7 +19,7 @@ namespace InternalMock.Services.Foundations.Reflections
             {
                 return returningMethodInfoFunction();
             }
-            catch (InvalidMethodNameException invalidMethodNameException)
+            catch (InvalidRefelctionException invalidMethodNameException)
             {
                 var reflectionValidationException =
                     new ReflectionValidationException(invalidMethodNameException);
