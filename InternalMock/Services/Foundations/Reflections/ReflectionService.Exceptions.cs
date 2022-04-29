@@ -1,9 +1,10 @@
 ﻿// ---------------------------------------------------------------
-// Copyright (c) Hassan Habib
+// Copyright (c) Hassan Habib, Ricardo Cruz, Mabrouk Mahdhi
 // Licensed under the MIT License.
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using System;
 using System.Reflection;
 using InternalMock.Models.Refelctions.Exceptions;
 
@@ -25,6 +26,18 @@ namespace InternalMock.Services.Foundations.Reflections
                     new ReflectionValidationException(invalidMethodNameException);
 
                 throw reflectionValidationException;
+            }
+
+            catch (Exception exception)
+            {
+                var failedReflectionServiceException =
+                    new FailedReflectionServiceException(exception);
+
+                var reflectionServiceException =
+                    new ReflectionServiceException(failedReflectionServiceException);
+
+
+                throw reflectionServiceException;
             }
         }
     }
