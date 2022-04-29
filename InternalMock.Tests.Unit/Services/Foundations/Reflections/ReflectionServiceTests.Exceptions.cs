@@ -1,5 +1,5 @@
 ﻿// ---------------------------------------------------------------
-// Copyright (c) Hassan Habib
+// Copyright (c) Hassan Habib, Ricardo Cruz, Mabrouk Mahdhi
 // Licensed under the MIT License.
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
@@ -14,7 +14,8 @@ namespace InternalMock.Tests.Unit.Services.Foundations.Reflections
     public partial class ReflectionServiceTests
     {
         [Fact]
-        public void ShouldThrowValidationExceptionOnRetrieveMethodInfoIfReflectionIsInvalid()
+        public void ShouldThrowServiceExceptionOnRetrieveMethodInfoIfExceptionOccurs()
+
         {
             // given
             string nullMethodName = null;
