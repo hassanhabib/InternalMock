@@ -14,7 +14,7 @@ namespace InternalMock.Tests.Unit.Services.Foundations.Reflections
     public partial class ReflectionServiceTests
     {
         [Fact]
-        public void ShouldThrowServiceExceptionOnRetrieveMethodInfoIfExceptionOccurs()
+        public void ShouldThrowValidationExceptionOnRetrieveMethodInfoIfReflectionIsInvalid()
         {
             // given
             string nullMethodName = null;
