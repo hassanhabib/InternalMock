@@ -18,37 +18,36 @@ namespace InternalMock.Tests.Unit.Services.Foundations.Reflections
 
         {
             // given
-            string nullMethodName = null;
             Type someType = GetRandomType();
             Type inputType = someType;
+            string someName = GetRandomMethodName();
+            string inputName = someName;
 
-            var invalidReflectionException =
-                new InvalidRefelctionException();
+            Exception exception = new Exception();
 
-            invalidReflectionException.AddData(
-                key: "type",
-                values: "Type is required");
+            var failedReflectionServiceException =
+                new FailedReflectionServiceException(exception);
 
-            invalidReflectionException.AddData(
-                key: "methodName",
-                values: "Text is required");
+            var expectedReflectionServiceException =
+                new ReflectionServiceException(failedReflectionServiceException);
 
-            var reflectionValidationException =
-                new ReflectionValidationException(invalidReflectionException);
+            this.reflectionBrokerMock.Setup(broker =>
+                broker.GetMethodInfo(It.IsAny<Type>(), It.IsAny<string>()))
+                    .Throws(exception);
 
             // when
             Action retrieveMethodInformationAction = () =>
                 this.reflectionService.RetrieveMethodInformation(
                     inputType,
-                    nullMethodName);
+                    inputName);
 
             // then
-            Assert.Throws<ReflectionValidationException>(
+            Assert.Throws<ReflectionServiceException>(
                 retrieveMethodInformationAction);
 
             this.reflectionBrokerMock.Verify(broker =>
-              broker.GetMethodInfo(inputType, nullMethodName),
-                  Times.Never);
+              broker.GetMethodInfo(inputType, inputName),
+                  Times.Once);
 
             this.reflectionBrokerMock.VerifyNoOtherCalls();
         }
