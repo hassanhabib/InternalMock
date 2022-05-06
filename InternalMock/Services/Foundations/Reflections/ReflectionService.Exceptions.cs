@@ -36,7 +36,6 @@ namespace InternalMock.Services.Foundations.Reflections
                 var reflectionServiceException =
                     new ReflectionServiceException(failedReflectionServiceException);
 
-
                 throw reflectionServiceException;
             }
         }
