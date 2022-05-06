@@ -40,6 +40,7 @@
 
 		<ItemGroup>
 				<PackageReference Include="Lib.Harmony" Version="2.2.1" />
+				<PackageReference Include="Xeption" Version="2.2.0" />
 		</ItemGroup>
 
 		<ItemGroup>

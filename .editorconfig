@@ -1,0 +1,12 @@
+# To learn more about .editorconfig see https://aka.ms/editorconfigdocs
+
+[*.cs]
+#Formatting - organize using options
+
+#sort System.* using directives alphabetically, and place them before other usings
+dotnet_sort_system_directives_first = true
+
+#Formatting - header template
+
+#add file header template
+file_header_template = ---------------------------------------------------------------\nCopyright (c) Hassan Habib, Ricardo Cruz, Mabrouk Mahdhi\nLicensed under the MIT License.\nSee License.txt in the project root for license information.\n---------------------------------------------------------------

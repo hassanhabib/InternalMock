@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternalMock", "InternalMoc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternalMock.Tests.Unit", "InternalMock.Tests.Unit\InternalMock.Tests.Unit.csproj", "{1D83FFB6-C57B-4D8D-903E-A19D4796146D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternalMock.Infrastructure.Build", "InternalMock.Infrastructure.Build\InternalMock.Infrastructure.Build.csproj", "{C45BCB17-C4C2-4345-AD7E-A578C09C2AEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternalMock.Infrastructure.Build", "InternalMock.Infrastructure.Build\InternalMock.Infrastructure.Build.csproj", "{C45BCB17-C4C2-4345-AD7E-A578C09C2AEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DC4A5EDE-93A8-4FA4-A2DB-EF1877D5D17A}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

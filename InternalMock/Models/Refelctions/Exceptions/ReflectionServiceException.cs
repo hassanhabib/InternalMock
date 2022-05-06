@@ -4,17 +4,14 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using System;
+using Xeptions;
 
-namespace InternalMock.Services.Orchestrations.InternalMocks
+namespace InternalMock.Models.Refelctions.Exceptions
 {
-    public interface IInternalMockOrchestrationService
+    public class ReflectionServiceException : Xeption
     {
-        void Mock(
-            string internalMethodName,
-            Type type,
-            Exception exception);
-
-        void UnpatchMethods();
+        public ReflectionServiceException(Xeption innerException)
+            : base(message: "Reflection service excpetion occurred, please contact support", innerException)
+        { }
     }
 }

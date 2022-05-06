@@ -5,16 +5,14 @@
 // ---------------------------------------------------------------
 
 using System;
+using Xeptions;
 
-namespace InternalMock.Services.Orchestrations.InternalMocks
+namespace InternalMock.Models.Refelctions.Exceptions
 {
-    public interface IInternalMockOrchestrationService
+    public class FailedReflectionServiceException : Xeption
     {
-        void Mock(
-            string internalMethodName,
-            Type type,
-            Exception exception);
-
-        void UnpatchMethods();
+        public FailedReflectionServiceException(Exception innerException)
+            : base(message: "Failed reflection exception occurred, please contact support", innerException)
+        { }
     }
 }
