@@ -28,7 +28,6 @@ namespace InternalMock.Tests.Unit.Services.Foundations
             }
             catch (NullReferenceException exception)
             {
-                // illustrative only
                 throw exception;
             }
         }

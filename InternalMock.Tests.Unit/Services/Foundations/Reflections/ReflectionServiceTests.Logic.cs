@@ -53,9 +53,12 @@ namespace InternalMock.Tests.Unit.Services.Foundations.Reflections
         public void ShouldRetrievePrivateMethodInfo()
         {
             // given
-            var reflectionService = new ReflectionService(new ReflectionBroker());
-            var privateMethodName = "DoPrivateStuff";
+            ReflectionService reflectionService = 
+                new ReflectionService(new ReflectionBroker());
+
+            string privateMethodName = "DoPrivateStuff";
             Type targetType = typeof(ExampleService);
+
             MethodInfo expectedMethodInfo = targetType.GetMethod(
                 privateMethodName, 
                 BindingFlags.Instance | BindingFlags.NonPublic);
