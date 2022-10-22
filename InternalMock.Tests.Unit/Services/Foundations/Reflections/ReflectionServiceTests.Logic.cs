@@ -8,6 +8,8 @@ using System;
 using System.Reflection;
 using FluentAssertions;
 using Force.DeepCloner;
+using InternalMock.Brokers.Reflections;
+using InternalMock.Services.Foundations.Reflections;
 using Moq;
 using Xunit;
 
@@ -45,6 +47,27 @@ namespace InternalMock.Tests.Unit.Services.Foundations.Reflections
                     Times.Once);
 
             this.reflectionBrokerMock.VerifyNoOtherCalls();
+        }
+
+        [Fact]
+        public void ShouldRetrievePrivateMethodInfo()
+        {
+            // given
+            var reflectionService = new ReflectionService(new ReflectionBroker());
+            var privateMethodName = "DoPrivateStuff";
+            Type targetType = typeof(ExampleService);
+            MethodInfo expectedMethodInfo = targetType.GetMethod(
+                privateMethodName, 
+                BindingFlags.Instance | BindingFlags.NonPublic);
+
+            // when
+            MethodInfo actualMethodInfo =
+                reflectionService.RetrieveMethodInformation(
+                    targetType,
+                    privateMethodName);
+
+            // then
+            actualMethodInfo.Should().BeSameAs(expectedMethodInfo);
         }
     }
 }

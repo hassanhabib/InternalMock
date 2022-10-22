@@ -4,8 +4,9 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using System.Reflection;
+using InternalMock.Extensions;
 using Moq;
+using System.Reflection;
 using Xunit;
 
 namespace InternalMock.Tests.Unit.Services.Foundations.Patchings
@@ -45,6 +46,23 @@ namespace InternalMock.Tests.Unit.Services.Foundations.Patchings
                         Times.Once);
 
             this.patchBrokerMock.VerifyNoOtherCalls();
+        }
+
+        [Fact]
+        public void ShouldPatchPrivateMethods()
+        {
+            // given
+            var randomException = RandomException();
+            var exampleService = new ExampleService();
+
+            // when
+            exampleService.Mock("DoPrivateStuff")
+                .Throws(randomException);
+
+            void actualProblem() => exampleService.DoStuff();
+
+            // then
+            Assert.Throws(randomException.GetType(), actualProblem);
         }
 
         [Fact]

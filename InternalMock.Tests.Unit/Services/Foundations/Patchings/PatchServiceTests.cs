@@ -5,6 +5,7 @@
 // ---------------------------------------------------------------
 
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -66,5 +67,22 @@ namespace InternalMock.Tests.Unit.Services.Foundations.Patchings
                 returnType: randomType,
                 parameterTypes: randomTypes);
         }
+
+        static Exception RandomException()
+            => new Exception []
+                {
+                    new Exception(),
+                    new NullReferenceException(),
+                    new OutOfMemoryException(),
+                    new ValidationException(),
+                    new InvalidCastException(),
+                    new InvalidFilterCriteriaException(),
+                    new InvalidOperationException(),
+                    new InvalidTimeZoneException(),
+                    new InvalidProgramException()
+                }
+                .Skip(new IntRange(0, 7)
+                .GetValue())
+                .First();
     }
 }
