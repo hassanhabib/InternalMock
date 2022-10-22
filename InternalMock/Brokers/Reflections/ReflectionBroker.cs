@@ -15,7 +15,7 @@ namespace InternalMock.Brokers.Reflections
         {
             return type.GetMethod(
                 methodName,
-                bindingAttr: BindingFlags.NonPublic | BindingFlags.Static);
+                bindingAttr: BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Static);
         }
     }
 }
