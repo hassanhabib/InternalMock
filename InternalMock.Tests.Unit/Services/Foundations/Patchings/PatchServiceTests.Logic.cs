@@ -4,8 +4,10 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using FluentAssertions;
 using InternalMock.Extensions;
 using Moq;
+using System;
 using System.Reflection;
 using Xunit;
 
@@ -50,6 +52,24 @@ namespace InternalMock.Tests.Unit.Services.Foundations.Patchings
 
         [Fact]
         public void ShouldPatchPrivateMethods()
+        {
+            // given
+            var expectedException = new InvalidOperationException();
+            var exampleService = new ExampleService();
+
+            // when
+            exampleService.Mock("DoPrivateStuff")
+                .Throws(expectedException);
+
+            void actualProblem() => exampleService.DoStuff();
+
+            // then
+            var actualException = Assert.Throws<InvalidOperationException>(actualProblem);
+            actualException.Should().BeEquivalentTo(expectedException);
+        }
+
+        [Fact]
+        public void ShouldPatchPrivateMethodsWithRandomException()
         {
             // given
             var randomException = RandomException();
