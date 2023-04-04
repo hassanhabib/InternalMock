@@ -69,7 +69,7 @@ namespace InternalMock.Tests.Unit.Services.Foundations.Patchings
         }
 
         static Exception RandomException()
-            => new Exception []
+            => new Exception[]
                 {
                     new Exception(),
                     new NullReferenceException(),

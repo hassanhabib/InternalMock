@@ -50,5 +50,5 @@ namespace InternalMock.Services.Orchestrations.InternalMocks
         public void UnpatchMethods() => this.patchService.UnpatchMethods();
 
         private static void ThrowException() => throw exception;
-    } 
+    }
 }

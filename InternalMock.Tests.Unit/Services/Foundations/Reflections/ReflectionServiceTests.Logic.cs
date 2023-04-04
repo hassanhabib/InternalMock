@@ -53,14 +53,14 @@ namespace InternalMock.Tests.Unit.Services.Foundations.Reflections
         public void ShouldRetrievePrivateMethodInfo()
         {
             // given
-            ReflectionService reflectionService = 
+            ReflectionService reflectionService =
                 new ReflectionService(new ReflectionBroker());
 
             string privateMethodName = "DoPrivateStuff";
             Type targetType = typeof(ExampleService);
 
             MethodInfo expectedMethodInfo = targetType.GetMethod(
-                privateMethodName, 
+                privateMethodName,
                 BindingFlags.Instance | BindingFlags.NonPublic);
 
             // when

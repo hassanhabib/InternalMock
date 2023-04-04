@@ -4,11 +4,11 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using System;
+using System.Reflection;
 using FluentAssertions;
 using InternalMock.Extensions;
 using Moq;
-using System;
-using System.Reflection;
 using Xunit;
 
 namespace InternalMock.Tests.Unit.Services.Foundations.Patchings
