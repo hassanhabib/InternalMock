@@ -8,7 +8,6 @@ using System;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
-using System.Runtime.Serialization;
 using InternalMock.Brokers.Reflections;
 using InternalMock.Services.Foundations.Reflections;
 using Moq;
