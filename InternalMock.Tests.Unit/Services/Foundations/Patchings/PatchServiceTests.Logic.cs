@@ -7,6 +7,7 @@
 using System;
 using System.Reflection;
 using FluentAssertions;
+using Force.DeepCloner;
 using InternalMock.Extensions;
 using Moq;
 using Xunit;
@@ -54,7 +55,12 @@ namespace InternalMock.Tests.Unit.Services.Foundations.Patchings
         public void ShouldPatchPrivateMethods()
         {
             // given
-            var expectedException = new InvalidOperationException();
+            var invalidOperationException =
+                new InvalidOperationException();
+            
+            var expectedException =
+                invalidOperationException.DeepClone();
+            
             var exampleService = new ExampleService();
 
             // when
@@ -64,8 +70,11 @@ namespace InternalMock.Tests.Unit.Services.Foundations.Patchings
             void actualProblem() => exampleService.DoStuff();
 
             // then
-            var actualException = Assert.Throws<InvalidOperationException>(actualProblem);
-            actualException.Should().BeEquivalentTo(expectedException);
+            var actualException =
+                Assert.Throws<InvalidOperationException>(actualProblem);
+            
+            actualException.Should().BeEquivalentTo(
+                expectedException);
         }
 
         [Fact]
