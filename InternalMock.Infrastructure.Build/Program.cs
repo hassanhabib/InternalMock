@@ -1,13 +1,11 @@
-﻿// ---------------------------------------------------------------
-// Copyright (c) Hassan Habib & Mabrouk Mahdhi
-// Licensed under the MIT License.
-// See License.txt in the project root for license information.
-// ---------------------------------------------------------------
+﻿// ----------------------------------------------------------------------------------
+// Copyright (c) The Standard Organization: A coalition of the Good-Hearted Engineers
+// ----------------------------------------------------------------------------------
 
 using ADotNet.Clients;
 using ADotNet.Models.Pipelines.GithubPipelines.DotNets;
 using ADotNet.Models.Pipelines.GithubPipelines.DotNets.Tasks;
-using ADotNet.Models.Pipelines.GithubPipelines.DotNets.Tasks.SetupDotNetTaskV1s;
+using ADotNet.Models.Pipelines.GithubPipelines.DotNets.Tasks.SetupDotNetTaskV3s;
 
 var adotnetClient = new ADotNetClient();
 
@@ -28,46 +26,59 @@ var githubPipeline = new GithubPipeline
         }
     },
 
-    Jobs = new Jobs
+    Jobs = new Dictionary<string, Job>
     {
-        Build = new BuildJob
         {
-            RunsOn = BuildMachines.Windows2022,
-
-            Steps = new List<GithubTask>
+            "build",
+            new Job
             {
-                new CheckoutTaskV2
-                {
-                    Name = "Check Out"
-                },
+                RunsOn = BuildMachines.UbuntuLatest,
 
-                new SetupDotNetTaskV1
+                Steps = new List<GithubTask>
                 {
-                    Name = "Setup Dot Net Version",
-
-                    TargetDotNetVersion = new TargetDotNetVersion
+                    new CheckoutTaskV3
                     {
-                        DotNetVersion = "6.0.*"
+                        Name = "Check out"
+                    },
+
+                    new SetupDotNetTaskV3
+                    {
+                        Name = "Setup .Net",
+
+                        With = new TargetDotNetVersionV3
+                        {
+                            DotNetVersion = "7.0.201"
+                        }
+                    },
+
+                    new RestoreTask
+                    {
+                        Name = "Restore"
+                    },
+
+                    new DotNetBuildTask
+                    {
+                        Name = "Build"
+                    },
+
+                    new TestTask
+                    {
+                        Name = "Test"
                     }
-                },
-
-                new RestoreTask
-                {
-                    Name = "Restore"
-                },
-
-                new DotNetBuildTask
-                {
-                    Name = "Build"
-                },
-
-                new TestTask
-                {
-                    Name = "Test"
                 }
             }
         }
     }
 };
 
-adotnetClient.SerializeAndWriteToFile(githubPipeline, "../../../../.github/workflows/dotnet.yml");
+string buildScriptPath = "../../../../.github/workflows/dotnet.yml";
+string directoryPath = Path.GetDirectoryName(buildScriptPath);
+
+if (!Directory.Exists(directoryPath))
+{
+    Directory.CreateDirectory(directoryPath);
+}
+
+adotnetClient.SerializeAndWriteToFile(
+    adoPipeline: githubPipeline,
+    path: buildScriptPath);
