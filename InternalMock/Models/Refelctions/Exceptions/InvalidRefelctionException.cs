@@ -4,17 +4,14 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using System;
+using Xeptions;
 
-namespace InternalMock.Services.Orchestrations.InternalMocks
+namespace InternalMock.Models.Refelctions.Exceptions
 {
-    public interface IInternalMockOrchestrationService
+    public class InvalidRefelctionException : Xeption
     {
-        void Mock(
-            string internalMethodName,
-            Type type,
-            Exception exception);
-
-        void UnpatchMethods();
+        public InvalidRefelctionException()
+            : base(message: "Invalid reflection. Please correct the errors and try again.")
+        { }
     }
 }

@@ -1,5 +1,5 @@
 ﻿// ---------------------------------------------------------------
-// Copyright (c) Hassan Habib
+// Copyright (c) Hassan Habib, Ricardo Cruz, Mabrouk Mahdhi
 // Licensed under the MIT License.
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
@@ -10,7 +10,7 @@ using InternalMock.Brokers.Reflections;
 
 namespace InternalMock.Services.Foundations.Reflections
 {
-    public class ReflectionService : IReflectionService
+    public partial class ReflectionService : IReflectionService
     {
         private readonly IReflectionBroker reflectionBroker;
 
@@ -18,6 +18,11 @@ namespace InternalMock.Services.Foundations.Reflections
             this.reflectionBroker = reflectionBroker;
 
         public MethodInfo RetrieveMethodInformation(Type type, string methodName) =>
-            this.reflectionBroker.GetMethodInfo(type, methodName);
+        TryCatch(() =>
+        {
+            ValidateMethodInformation(type, methodName);
+
+            return this.reflectionBroker.GetMethodInfo(type, methodName);
+        });
     }
 }
